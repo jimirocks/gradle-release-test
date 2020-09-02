@@ -16,6 +16,8 @@ scmVersion {
     })
 }
 
+project.version = scmVersion.version
+
 allprojects {
 
     apply(plugin = "org.jetbrains.kotlin.jvm")
@@ -35,5 +37,5 @@ allprojects {
 }
 
 subprojects {
-    project.version = parent?.scmVersion?.version ?: error("Parent project doesn't configure scmVersion!")
+    project.version = parent?.version ?: error("Subproject has no parent, you are in wrong universe.")
 }
