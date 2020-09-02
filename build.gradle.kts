@@ -3,16 +3,21 @@ plugins {
 
     // releasing
     id("net.researchgate.release") version "2.8.1"
-} 
-
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-    jcenter()
 }
 
-dependencies {
-    implementation(kotlin("stdlib-jdk8"))
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
+allprojects {
+
+    apply(plugin = "org.jetbrains.kotlin.jvm")
+    apply(plugin = "net.researchgate.release")
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        implementation(kotlin("stdlib-jdk8"))
+        implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
+    }
 }
