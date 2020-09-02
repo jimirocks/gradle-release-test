@@ -1,3 +1,5 @@
+import pl.allegro.tech.build.axion.release.domain.TagNameSerializationConfig
+
 plugins {
     kotlin("jvm") version "1.3.72"
 
@@ -8,13 +10,21 @@ plugins {
 
 }
 
+scmVersion {
+    tag(closureOf<TagNameSerializationConfig> {
+        prefix = project.name
+    })
+}
+
 allprojects {
 
     apply(plugin = "org.jetbrains.kotlin.jvm")
 //    apply(plugin = "net.researchgate.release")
-    apply(plugin = "pl.allegro.tech.build.axion-release")
+
 
     project.version = scmVersion.version
+
+
 
     repositories {
         mavenLocal()
