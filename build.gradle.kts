@@ -22,10 +22,6 @@ allprojects {
 //    apply(plugin = "net.researchgate.release")
 
 
-    project.version = scmVersion.version
-
-
-
     repositories {
         mavenLocal()
         mavenCentral()
@@ -36,4 +32,8 @@ allprojects {
         implementation(kotlin("stdlib-jdk8"))
         implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     }
+}
+
+subprojects {
+    project.version = parent?.scmVersion?.version ?: error("Parent project doesn't configure scmVersion!")
 }
