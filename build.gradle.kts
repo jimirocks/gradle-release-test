@@ -5,7 +5,7 @@ plugins {
 
     // releasing
 //    id("net.researchgate.release") version "2.8.1"
-    id("pl.allegro.tech.build.axion-release") version "1.12.0"
+    id("pl.allegro.tech.build.axion-release") version "1.11.0"
 
 
 }
